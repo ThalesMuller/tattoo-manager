@@ -25,9 +25,12 @@ Aplicação destinada a gerenciar e armazenar informações sobre flashes criado
 
 ## Arquitetura
 
-Projeto criado usando o vite, com o template do react e typescript, com o firebase para autenticação e banco de dados.
-A estilização foi feita com styled components e o roteamento com react router dom.
-O projeto utiliza clean architecture, então a seguinte estrutura foi criada:
+Projeto baseado em Clean Arch, usando o Vite para criar a aplicação React com Typescript.
+Utiliza o firebase para autenticação e banco de dados.
+A estilização foi feita com Styled Components e o roteamento com React Router DOM.
+
+O intuito de usar Clean Architecture é permitir a substituição de qualquer dependência externa com o mínimo esforço possível.
+A seguinte estrutura foi criada:
 
 - **src**
   - **domain**: Define os models e usecases.
