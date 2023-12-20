@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Validation } from "@presentation/protocols/validation";
-import { WatchFlashes } from "@domain/use-cases/WatchFlashes";
+import { ListFlashes } from "@domain/use-cases/ListFlashes";
 import { Flash } from "@domain/models/Flash";
 
 interface Props {
   validation: Validation;
-  watchFlashes: WatchFlashes;
+  watchFlashes: ListFlashes;
 }
 
 export const Flashes: React.FC<Props> = (props: Props) => {

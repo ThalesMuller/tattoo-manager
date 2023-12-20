@@ -1,3 +1,4 @@
+import { Buyer } from "./Buyer";
 import { Flash } from "./Flash";
 
 export enum PaymentMethodEnum {
@@ -14,4 +15,5 @@ export interface Purchase {
   paymentMethod: PaymentMethodEnum,
   flashdayId: string | null,
   studioPercentage: number,
+  buyer?: Buyer
 }

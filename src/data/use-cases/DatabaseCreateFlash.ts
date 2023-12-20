@@ -1,8 +1,8 @@
 import { NoSQLDatabaseClientProtocol } from "@data/protocols/database/NoSQLDatabaseClientProtocol";
 import { Flash } from "@domain/models/Flash";
-import { CreateFlash } from "@domain/use-cases/CreateFlash";
+import { SaveFlash } from "@domain/use-cases/SaveFlash";
 
-export class DatabaseCreateFlash implements CreateFlash {
+export class DatabaseSaveFlash implements SaveFlash {
   constructor(
     private readonly collection: string,
     private readonly databaseProtocol: NoSQLDatabaseClientProtocol
@@ -10,6 +10,18 @@ export class DatabaseCreateFlash implements CreateFlash {
 
   async create(flash: Flash): Promise<void> {
     await this.databaseProtocol.add<Flash, void>(this.collection, flash);
+  }
+
+  async update(flash: Flash): Promise<void> {
+    if (!flash?.id) throw new Error("Flash id is undefined");
+
+    await this.databaseProtocol.update<Flash>(this.collection, flash.id, flash);
+  }
+
+  async delete(flash: Flash): Promise<void> {
+    if (!flash?.id) throw new Error("Flash id is undefined");
+
+    await this.databaseProtocol.delete(this.collection, flash.id);
   }
 
 }

@@ -1,5 +1,5 @@
 import { Flash } from "@domain/models/Flash";
 
-export interface WatchFlashes {
+export interface ListFlashes {
   watch: (setFlashes: React.Dispatch<Flash[]>) => void
 }
