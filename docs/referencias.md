@@ -26,9 +26,10 @@
 - 📚 [Firebase Strapi Hosting](https://forum.strapi.io/t/how-i-can-host-strapi-app-on-firebase-hosting/7231)
 - 📚 [Firebase Strapi Hosting 2](https://github.com/arrowheadapps/strapi-connector-firestore/tree/master/examples/cloud-run-and-hosting )
 
-## Styled Components
+## Estilização
 
 - 📚 [Styled Components Docs](https://styled-components.com/docs)
+- 🧬 [Reset CSS](https://andy-bell.co.uk/a-more-modern-css-reset/)
 
 ## React Router Dom
 
