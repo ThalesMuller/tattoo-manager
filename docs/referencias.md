@@ -25,7 +25,6 @@
 - 🎥 [Data Modeling Techniques](https://www.youtube.com/watch?v=35RlydUf6xo)
 - 📚 [Firebase Strapi Hosting](https://forum.strapi.io/t/how-i-can-host-strapi-app-on-firebase-hosting/7231)
 - 📚 [Firebase Strapi Hosting 2](https://github.com/arrowheadapps/strapi-connector-firestore/tree/master/examples/cloud-run-and-hosting )
--
 
 ## Styled Components
 
