@@ -1,30 +1,46 @@
-# React + TypeScript + Vite
+# Tattoo Manager
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
 
-Currently, two official plugins are available:
+Aplicação destinada a gerenciar e armazenar informações sobre flashes criados por tatuadores.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Funcionalidades
 
-## Expanding the ESLint configuration
+- Listar e criar flashes.
+- Listar e criar flashdays.
+- Relatorio financeiro.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Tecnologias
 
-- Configure the top-level `parserOptions` property like this:
+- React Typescript
+- Firebase
+- Styled Components
+- React Router Dom
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+## Como rodar
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- Clone o repositório com `git clone https://github.com/ThalesMuller/tattoo-manager.git`
+- Entre no projeto e instale as dependências com `npm install` ou `yarn`
+- Rode o projeto com o comando `npm run dev` ou `yarn dev`
+
+## Arquitetura
+
+Projeto criado usando o vite, com o template do react e typescript, com o firebase para autenticação e banco de dados.
+A estilização foi feita com styled components e o roteamento com react router dom.
+O projeto utiliza clean architecture, então a seguinte estrutura foi criada:
+
+- **src**
+  - **domain**: Define os models e usecases.
+  - **data**: Define como os dados são trafegados na nossa aplicação.
+  - **infra**: Integração com bibliotecas externas, aqui são criados os adapters.
+  - **presentation**: Camada de apresentação, aqui são criados os components, pages e protocolos de validação.
+  - **validation**: Validação de dados com base nos protocolos criados na camada de apresentação.
+  - **main**: Camada suja da aplicação, aqui são criadas e são montadas as outras camadas com o uso de factories.
+
+## Dicionário
+
+- **Flash**: Desenho criado por um tatuador que já está pronto para tatuar. O flash pode ser exclusivo ou não.
+- **Flash Exclusivo**: Flash que só pode ser tatuado uma unica vez (vendido para uma unica pessoa).
+- **Flashday**: Evento onde um tatuador disponibiliza flashes para tatuar.
+- **Tatuador**: Pessoa que cria flashes e os tatua.
+- **Cliente**: Pessoa que compra flashes.
