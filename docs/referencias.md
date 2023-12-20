@@ -2,7 +2,7 @@
 
 ## Clean Architecture
 
-- [Projeto GithubExplorer](https://github.com/sunderhus/GithubExplorer)
+- [Projeto GithubExplorer do Matheus Sunderhus](https://github.com/sunderhus/GithubExplorer)
 
 ## DDD
 

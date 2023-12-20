@@ -27,3 +27,4 @@
 - [ ] Financial Report
 - [ ] Flashday Report
 - [ ] Login required and admin role
+- [ ] Validar possibilidade de aplicar um design system de forma desacoplada
