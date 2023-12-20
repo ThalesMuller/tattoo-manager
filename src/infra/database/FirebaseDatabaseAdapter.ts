@@ -1,9 +1,8 @@
-import { NoSQLDatabaseClientProtocol } from "@data/protocols/database/NoSQLDatabaseClientProtocol";
+import { NoSQLDatabaseClientProtocol, NoSQLQuery } from "@data/protocols/database/NoSQLDatabaseClientProtocol";
 import { collection, getFirestore, Firestore, doc, getDoc, addDoc, setDoc, WithFieldValue, DocumentData, deleteDoc, onSnapshot } from "@firebase/firestore";
 import { FirebaseApp, initializeApp } from "firebase/app";
 import { firebaseConfig } from "./config";
-
-
+import { orderBy, query, where } from "firebase/firestore";
 
 export class FirebaseDatabaseAdapter implements NoSQLDatabaseClientProtocol {
   private readonly app: FirebaseApp;
@@ -42,8 +41,39 @@ export class FirebaseDatabaseAdapter implements NoSQLDatabaseClientProtocol {
     await deleteDoc(doc(this.db, _collection, _id));
   }
 
-  watch<ReturnType>(_collection: string, _callback: (data: ReturnType[]) => void): void {
-    onSnapshot(collection(this.db, _collection), (snapshot) => {
+  private parseWhere(_where?: NoSQLQuery['where']) {
+    if (!_where) return;
+
+    const { field, operator, value } = _where;
+
+    return where(field, operator, value)
+  }
+
+  private parseOrderBy(_orderBy?: NoSQLQuery['orderBy']) {
+    if (!_orderBy) return;
+
+    const { field, direction } = _orderBy;
+
+    return orderBy(field, direction);
+  }
+
+  private parseQuery(_collection: string, _query?: NoSQLQuery) {
+    const ref = collection(this.db, _collection);
+
+    const parsedWhere = this.parseWhere(_query?.where);
+    const parsedOrderBy = this.parseOrderBy(_query?.orderBy);
+
+    if (!parsedWhere) return ref;
+
+    if (!parsedOrderBy) return query(ref, parsedWhere);
+
+    return query(ref, parsedWhere, parsedOrderBy);
+  }
+
+
+  watch<ReturnType>(_collection: string, _callback: (data: ReturnType[]) => void, _query?: NoSQLQuery): void {
+
+    onSnapshot(this.parseQuery(_collection, _query), (snapshot) => {
       const parsedDocsData = snapshot.docs.map((doc) => { return doc.data() as unknown as ReturnType });
 
       _callback(parsedDocsData);
