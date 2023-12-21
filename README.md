@@ -1,6 +1,6 @@
 # Tattoo Manager
 
-## Description
+## Descrição
 
 Aplicação destinada a gerenciar e armazenar informações sobre flashes criados por tatuadores.
 
@@ -32,13 +32,12 @@ A estilização foi feita com Styled Components e o roteamento com React Router 
 O intuito de usar Clean Architecture é permitir a substituição de qualquer dependência externa com o mínimo esforço possível.
 A seguinte estrutura foi criada:
 
-- **src**
-  - **domain**: Define os models e usecases.
-  - **data**: Define como os dados são trafegados na nossa aplicação.
-  - **infra**: Integração com bibliotecas externas, aqui são criados os adapters.
-  - **presentation**: Camada de apresentação, aqui são criados os components, pages e protocolos de validação.
-  - **validation**: Validação de dados com base nos protocolos criados na camada de apresentação.
-  - **main**: Camada suja da aplicação, aqui são criadas e são montadas as outras camadas com o uso de factories.
+- **domain**: Define os models e usecases.
+- **data**: Define como os dados são trafegados na nossa aplicação.
+- **infra**: Integração com bibliotecas externas, aqui são criados os adapters.
+- **presentation**: Camada de apresentação, aqui são criados os components, pages e protocolos de validação.
+- **validation**: Validação de dados com base nos protocolos criados na camada de apresentação.
+- **main**: Camada suja da aplicação, aqui são criadas e são montadas as outras camadas com o uso de factories.
 
 ## Dicionário
 
