@@ -20,9 +20,13 @@
         "editor.fontLigatures": true,
         "files.eol": "\n",
         "git.autofetch": true,
+        "workbench.colorTheme": "Bearded Theme Black & Ruby",
         "typescript.updateImportsOnFileMove.enabled": "always",
         "javascript.updateImportsOnFileMove.enabled": "always",
         "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "[jsonc]": {
+          "editor.defaultFormatter": "vscode.json-language-features"
+        },
         "[html]": {
           "editor.defaultFormatter": "vscode.html-language-features"
         },
@@ -64,31 +68,32 @@
           "*.ts": "${capture}.js, ${capture}.spec.ts",
           "*.tsx": "${capture}.ts, ${capture}.spec.tsx",
           "package.json": "package-lock.json, .editorconfig, .eslint.cjs, .gitignore, .npmrc, tsconfig.*, vite*"
-        }
+        },
+        "vite.autoStart": false
       },
       "extensions": [
-         "formulahendry.auto-close-tag",
-          "formulahendry.auto-rename-tag",
-          "beardedbear.beardedtheme",
-          "aaron-bond.better-comments",
-          "alefragnani.bookmarks",
-          "pkief.material-icon-theme",
-          "naumovs.color-highlight",
-          "ms-azuretools.vscode-docker",
-          "editorconfig.editorconfig",
-          "dbaeumer.vscode-eslint",
-          "jsayol.firebase-explore",
-          "github.copilot",
-          "eamodio.gitlens",
-          "wix.vscode-import-cost",
-          "ritwickdey.liveserver",
-          "davidanson.vscode-markdownlint",
-          "idered.npm",
-          "esbenp.prettier-vscode",
-          "albert.tabout",
-          "rangav.vscode-thunder-client",
-          "styled-components.vscode-styled-components",
-          "antfu.vite"
+        "formulahendry.auto-close-tag",
+        "formulahendry.auto-rename-tag",
+        "aaron-bond.better-comments",
+        "alefragnani.bookmarks",
+        "pkief.material-icon-theme",
+        "naumovs.color-highlight",
+        "ms-azuretools.vscode-docker",
+        "editorconfig.editorconfig",
+        "dbaeumer.vscode-eslint",
+        "jsayol.firebase-explore",
+        "github.copilot",
+        "eamodio.gitlens",
+        "wix.vscode-import-cost",
+        "ritwickdey.liveserver",
+        "davidanson.vscode-markdownlint",
+        "idered.npm",
+        "esbenp.prettier-vscode",
+        "albert.tabout",
+        "rangav.vscode-thunder-client",
+        "styled-components.vscode-styled-components",
+        "antfu.vite",
+        "BeardedBear.beardedtheme"
       ]
     }
   },
