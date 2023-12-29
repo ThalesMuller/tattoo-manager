@@ -1,23 +1,109 @@
 {
-  "image": "mcr.microsoft.com/devcontainers/universal:2",
-	"features": {
-		"ghcr.io/devcontainers-contrib/features/firebase-cli:2": {}
-	},
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
   "hostRequirements": {
-    "cpus": 4,
-    "memory": "16gb"
+    "cpus": 4
   },
   "waitFor": "onCreateCommand",
   "updateContentCommand": "npm install",
   "postCreateCommand": "",
   "postAttachCommand": {
-    "server": "npm start"
+    "server": "npm run dev"
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "editor.minimap.enabled": false,
+        "explorer.autoReveal": "focusNoScroll",
+        "editor.fontFamily": "'Cascadia Code PL'",
+        "editor.fontLigatures": true,
+        "files.eol": "\n",
+        "git.autofetch": true,
+        "typescript.updateImportsOnFileMove.enabled": "always",
+        "javascript.updateImportsOnFileMove.enabled": "always",
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "[html]": {
+          "editor.defaultFormatter": "vscode.html-language-features"
+        },
+        "[css]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "[javascript]": {
+          "editor.defaultFormatter": "vscode.typescript-language-features"
+        },
+        "[javascriptreact]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "[typescriptreact]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "[typescript]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": true,
+        "editor.codeActionsOnSave": {
+          "source.organizeImports": "explicit",
+          "source.fixAll.eslint": "explicit"
+        },
+        "eslint.format.enable": true,
+        "eslint.workingDirectories": [
+          {
+            "mode": "auto"
+          }
+        ],
+        "eslint.validate": [
+          "javascript",
+          "javascriptreact",
+          "typescript",
+          "typescriptreact"
+        ],
+        "explorer.fileNesting.enabled": true,
+        "explorer.fileNesting.patterns": {
+          "*.ts": "${capture}.js, ${capture}.spec.ts",
+          "*.tsx": "${capture}.ts, ${capture}.spec.tsx",
+          "package.json": "package-lock.json, .editorconfig, .eslint.cjs, .gitignore, .npmrc, tsconfig.*, vite*"
+        }
+      },
+      "extensions": [
+         "formulahendry.auto-close-tag",
+          "formulahendry.auto-rename-tag",
+          "beardedbear.beardedtheme",
+          "aaron-bond.better-comments",
+          "alefragnani.bookmarks",
+          "pkief.material-icon-theme",
+          "naumovs.color-highlight",
+          "ms-azuretools.vscode-docker",
+          "editorconfig.editorconfig",
+          "dbaeumer.vscode-eslint",
+          "jsayol.firebase-explore",
+          "github.copilot",
+          "eamodio.gitlens",
+          "wix.vscode-import-cost",
+          "ritwickdey.liveserver",
+          "davidanson.vscode-markdownlint",
+          "idered.npm",
+          "esbenp.prettier-vscode",
+          "albert.tabout",
+          "rangav.vscode-thunder-client",
+          "styled-components.vscode-styled-components",
+          "antfu.vite"
+      ]
+    }
   },
   "portsAttributes": {
-    "3000": {
-      "label": "Application",
+    "5173": {
+      "label": "Front",
+      "onAutoForward": "openPreview"
+    },
+    "5500": {
+      "label": "Coverage Report",
       "onAutoForward": "openPreview"
     }
   },
-  "forwardPorts": [3000]
+  "forwardPorts": [
+    5173,
+    5500
+  ]
 }
